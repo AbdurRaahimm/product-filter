@@ -12,8 +12,8 @@
         <div class="container mx-auto">
             <div class="flex justify-between items-center py-3 gap-3">
                 <div class=" text-2xl font-bold bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-transparent"><i class="bi bi-layout-text-sidebar-reverse"></i> Product Filter</div>
-                <div class="  border-2 border-pink-600 rounded ">
-                    <input type="text" class="px-4 py-2 rounded focus:outline-none " placeholder="Search">
+                <div id="inputFilter" class=" border-2 border-pink-600 rounded ">
+                    <input type="search"   class="px-4 py-2 rounded focus:outline-none " placeholder="Search Products...">
                     <button class="px-4 py-2 bg-blue-500 text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 ">Search</button>
                 </div>
                 <div class="space-x-4">
@@ -78,17 +78,19 @@
                             <i class="bi bi-list-task text-2xl cursor-pointer"></i>
                         </div>
                         <div>
-                            <select name="" id="" class="px-4 py-2 rounded focus:outline-none">
-                                <option value="">Sort by Default</option>
-                                <option value="">Sort by Rating</option>
-                                <option value="">Sort by Newness</option>
-                                <option value="">Sort by Price: low to high</option>
-                                <option value="">Sort by Price: high to low</option>
+                            <select name="" id="sortFilter" class="px-4 py-2 rounded focus:outline-none">
+                                <option value="default">Sort by Default</option>
+                                <option value="rating">Sort by Rating</option>
+                                <option value="new">Sort by Newness</option>
+                                <option value="low">Sort by Price: low to high</option>
+                                <option value="high">Sort by Price: high to low</option>
                             </select>
-                            <select name="" id="" class="px-4 py-2 rounded focus:outline-none">
-                                <option value="">Show 12</option>
-                                <option value="">Show 24</option>
-                                <option value="">Show 36</option>
+                            <select name="" id="showPerItem" class="px-4 py-2 rounded focus:outline-none">
+                                <option selected>Show Product per Item</option>
+                                <option value="3">Show 3</option>
+                                <option value="6">Show 6</option>
+                                <option value="12">Show 12</option>
+                                <option value="18">Show 18</option>
                             </select>
                         </div>
 
