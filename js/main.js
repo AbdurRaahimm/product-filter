@@ -1,10 +1,10 @@
-import { formatPrice } from './formatPrice.js';
-import { starRating } from './starRating.js';
+import displayProducts from './displayProducts.js';
 const gridList = document.querySelectorAll('.gridList i');
 const productContainer = document.querySelector('.productContainer');
 const inputFilter = document.querySelector('#inputFilter input');
 const sortFilter = document.querySelector('#sortFilter');
 const showPerItem = document.querySelector('#showPerItem');
+const category = document.querySelector('#category ul');
 // console.log(sortFilter);
 
 // grid view and list view
@@ -26,31 +26,25 @@ const productFetch = async () => {
     const response = await fetch('./data/products.json');
     const { products } = await response.json();
     items = products;
-    products.forEach((product) => {
-        productContainer.innerHTML += `
-    <div class="bg-white p-4 rounded shadow space-y-3">
-        <img class="rounded" loading="lazy" src="${product.image}" alt="produc-img">
-        <h1 class="text-xl font-bold"> ${product.title} </h1>
-        <div class="">
-            ${product.category.map((cat) => `<span class="text-gray-500">${cat}</span>`).join(',')}
-        </div>              
-        <p class="text-gray-500">
-            ${starRating(product.rating)}(${product.rating})
-        </p>
-        <div class="color"> 
-            ${product.colors.map((color) => {
-            return `<span class="w-4 h-4 rounded-full inline-block m-px" style="background:${color};"></span>`
-        }).join('')
-            }
-        </div>
-        <div class="flex justify-between items-center mt-4">
-            <h1 class="text-2xl font-bold text-pink-500">${formatPrice(product.price)}</h1>
-            <button class="px-4 py-2 bg-blue-500 text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 ">Add to Cart</button>
-        </div>
-    </div>`;
+    // category append in ul
+    let categories = [...new Set(products.map(item => item.category).flat())];
+    categories.map(cat => {
+        const li = document.createElement('li');
+        li.innerText = cat + `(${products.filter(item => item.category.includes(cat)).length})`;
+        li.addEventListener('click', () => filterItemsByCategory(cat));
+        li.classList.add('py-1', 'hover:text-pink-500', 'cursor-pointer');
+        category.appendChild(li);
+        // category.innerHTML += `<li  class="py-1 hover:text-pink-500 cursor-pointer"> ${cat}</li>`;
+    });
+
+    // Display all products initially
+    items.forEach((product) => {
+        displayProducts(product);
     });
 };
 await productFetch();
+
+
 
 // input filter product if not found then show empty message 
 inputFilter.addEventListener('keyup', (e) => {
@@ -63,27 +57,7 @@ inputFilter.addEventListener('keyup', (e) => {
         productContainer.innerHTML = `<h1 class="text-2xl text-center">Product not found</h1>`;
     } else {
         filterProduct.forEach((product) => {
-            productContainer.innerHTML += `
-            <div class="bg-white p-4 rounded shadow space-y-3">
-                <img class="rounded" loading="lazy" src="${product.image}" alt="produc-img">
-                <h1 class="text-xl font-bold"> ${product.title} </h1>
-                <div class="">
-                    ${product.category.map((cat) => `<span class="text-gray-500">${cat}</span>`).join(',')}
-                </div>              
-                <p class="text-gray-500">
-                    ${starRating(product.rating)}(${product.rating})
-                </p>
-                <div class="color"> 
-                    ${product.colors.map((color) => {
-                    return `<span class="w-4 h-4 rounded-full inline-block m-px" style="background:${color};"></span>`
-                }).join('')
-                    }
-                </div>
-                <div class="flex justify-between items-center mt-4">
-                    <h1 class="text-2xl font-bold text-pink-500">${formatPrice(product.price)}</h1>
-                    <button class="px-4 py-2 bg-blue-500 text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 ">Add to Cart</button>
-                </div>
-            </div>`;
+            displayProducts(product);
         });
     }
 });
@@ -104,27 +78,7 @@ sortFilter.addEventListener('change', (e) => {
     }
     productContainer.innerHTML = '';
     items.forEach((product) => {
-        productContainer.innerHTML += `
-    <div class="bg-white p-4 rounded shadow space-y-3">
-        <img class="rounded" loading="lazy" src="${product.image}" alt="produc-img">
-        <h1 class="text-xl font-bold"> ${product.title} </h1>
-        <div class="">
-            ${product.category.map((cat) => `<span class="text-gray-500">${cat}</span>`).join(',')}
-        </div>              
-        <p class="text-gray-500">
-            ${starRating(product.rating)}(${product.rating})
-        </p>
-        <div class="color"> 
-            ${product.colors.map((color) => {
-            return `<span class="w-4 h-4 rounded-full inline-block m-px" style="background:${color};"></span>`
-        }).join('')
-            }
-        </div>
-        <div class="flex justify-between items-center mt-4">
-            <h1 class="text-2xl font-bold text-pink-500">${formatPrice(product.price)}</h1>
-            <button class="px-4 py-2 bg-blue-500 text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 ">Add to Cart</button>
-        </div>
-    </div>`;
+        displayProducts(product);
     });
 });
 
@@ -133,26 +87,24 @@ showPerItem.addEventListener('change', (e) => {
     const value = e.target.value;
     productContainer.innerHTML = '';
     items.slice(0, value).forEach((product) => {
-        productContainer.innerHTML += `
-        <div class="bg-white p-4 rounded shadow space-y-3">
-            <img class="rounded" loading="lazy" src="${product.image}" alt="produc-img">
-            <h1 class="text-xl font-bold"> ${product.title} </h1>
-            <div class="">
-                ${product.category.map((cat) => `<span class="text-gray-500">${cat}</span>`).join(',')}
-            </div>              
-            <p class="text-gray-500">
-                ${starRating(product.rating)}(${product.rating})
-            </p>
-            <div class="color"> 
-                ${product.colors.map((color) => {
-                return `<span class="w-4 h-4 rounded-full inline-block m-px" style="background:${color};"></span>`
-            }).join('')
-                }
-            </div>
-            <div class="flex justify-between items-center mt-4">
-                <h1 class="text-2xl font-bold text-pink-500">${formatPrice(product.price)}</h1>
-                <button class="px-4 py-2 bg-blue-500 text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 ">Add to Cart</button>
-            </div>
-        </div>`;
+        displayProducts(product);
     });
 });
+
+
+// filter product by category
+const filterItemsByCategory = (category) => {
+    const filterProduct = items.filter((product) => {
+        return product.category.includes(category);
+    });
+    productContainer.innerHTML = '';
+    if (filterProduct.length === 0) {
+        productContainer.innerHTML = `<h1 class="text-2xl text-center">Product not found</h1>`;
+    } else {
+        filterProduct.forEach((product) => {
+            displayProducts(product);
+        });
+    }
+};
+
+
