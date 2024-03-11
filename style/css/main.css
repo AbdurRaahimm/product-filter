@@ -1,0 +1,6 @@
+@import url(./sidebar.css);
+@import url(./productList.css);
+@import url(./pagination.css);
+main{
+    display: flex;
+}

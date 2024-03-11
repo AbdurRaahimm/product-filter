@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Product Filter</title>
+</head>
+<body>
+    <header class="shadow ">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center py-3 gap-3">
+                <div class=" text-2xl font-bold bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-transparent"><i class="bi bi-layout-text-sidebar-reverse"></i> Product Filter</div>
+                <div class="  border-2 border-pink-600 rounded ">
+                    <input type="text" class="px-4 py-2 rounded focus:outline-none " placeholder="Search">
+                    <button class="px-4 py-2 bg-blue-500 text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 ">Search</button>
+                </div>
+                <div class="space-x-4">
+                    <i class="bi bi-person text-3xl cursor-pointer ml-4 "></i>
+                    <i class="bi bi-cart3 text-3xl cursor-pointer mr-4"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto">
+        <div class="flex gap-4">
+            <div class="w-1/4">
+                <div class="bg-gray-100 p-4 rounded shadow">
+                    <h1 class="text-xl font-bold">Categories</h1>
+                    <ul class="mt-2">
+                        <li class="py-1"> <a href="#" class="hover:text-pink-500">Mobiles</a> </li>
+                        <li class="py-1"> <a href="#" class="hover:text-pink-500">Laptops</a> </li>
+                        <li class="py-1"> <a href="#" class="hover:text-pink-500">Clothes</a> </li>
+                        <li class="py-1"> <a href="#" class="hover:text-pink-500">Shoes</a> </li>
+                        <li class="py-1"> <a href="#" class="hover:text-pink-500">Watches</a> </li>
+                    </ul>
+                </div>
+                <div class="bg-gray-100 p-4 rounded shadow mt-4">
+                    <h1 class="text-xl font-bold">Colors</h1>
+                    <ul class="mt-2">
+                        <li class="py-1"> <a href="#" class="hover:text-pink-500">Red</a> </li>
+                        <li class="py-1"> <a href="#" class="hover:text-pink-500">Blue</a> </li>
+                        <li class="py-1"> <a href="#" class="hover:text-pink-500">Yellow</a> </li>
+                        <li class="py-1"> <a href="#" class="hover:text-pink-500">Green</a> </li>
+                        <li class="py-1"> <a href="#" class="hover:text-pink-500">Black</a> </li>
+                    </ul>
+                </div>
+                <div class="bg-gray-100 p-4 rounded shadow mt-4">
+                    <h1 class="text-xl font-bold">Rating</h1>    
+                    <!-- select option rating --> 
+                    <select name="" id="" class="px-4 py-2 rounded focus:outline-none w-full mt-2">
+                        <option value="">Select Rating</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                        <option value="">5</option>
+                    </select>
+                    
+                </div>
+                <div class="bg-gray-100 p-4 rounded shadow mt-4">
+                    <h1 class="text-xl font-bold">Price</h1>
+                    <input type="range" class=" w-full bg-gray-300 h-1 rounded mt-2" min="0" max="1000" step="50" value="0" id="priceRange">
+                    <div class="flex justify-between items-center mt-2">
+                        <span>$0</span>
+                        <span>$1000</span>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="w-3/4">
+                <div class="bg-gray-100 p-4 rounded shadow">
+                    <div class="flex justify-between items-center">
+                        <div class="">
+                            <i class="bi bi-grid-3x3-gap-fill text-2xl cursor-pointer"></i>
+                            <i class="bi bi-list-task text-2xl cursor-pointer"></i>
+                        </div>
+                        <div>
+                            <select name="" id="" class="px-4 py-2 rounded focus:outline-none">
+                                <option value="">Sort by Default</option>
+                                <option value="">Sort by Rating</option>
+                                <option value="">Sort by Newness</option>
+                                <option value="">Sort by Price: low to high</option>
+                                <option value="">Sort by Price: high to low</option>
+                            </select>
+                            <select name="" id="" class="px-4 py-2 rounded focus:outline-none">
+                                <option value="">Show 12</option>
+                                <option value="">Show 24</option>
+                                <option value="">Show 36</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <hr class="my-4">
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="bg-gray-100 p-4 rounded shadow space-y-3">
+                        <img src="https://via.placeholder.com/190" alt="">
+                        <h1 class="text-xl font-bold">Product 1</h1>
+                        <div class="divide-x divide-gray-500 ">
+                            <span class="text-gray-500">Electronics </span>
+                            <span class="text-gray-500 pl-2">Smartphones</span>
+                        </div>
+                        <p class="text-gray-500">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
+                            (4.5)
+                        </p>
+                        <div class="color">
+                            <span class="w-4 h-4 bg-red-500 rounded-full inline-block"></span>
+                            <span class="w-4 h-4 bg-blue-500 rounded-full inline-block"></span>
+                            <span class="w-4 h-4 bg-yellow-500 rounded-full inline-block"></span>
+                            <span class="w-4 h-4 bg-green-500 rounded-full inline-block"></span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <h1 class="text-2xl font-bold text-pink-500">$500</h1>
+                            <button class="px-4 py-2 bg-blue-500 text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 ">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded shadow space-y-3">
+                        <img src="https://via.placeholder.com/190" alt="">
+                        <h1 class="text-xl font-bold">Product 1</h1>
+                        <div class="divide-x divide-gray-500 ">
+                            <span class="text-gray-500">Electronics </span>
+                            <span class="text-gray-500 pl-2">Smartphones</span>
+                        </div>
+                        <p class="text-gray-500">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
+                            (4.5)
+                        </p>
+                        <div class="color">
+                            <span class="w-4 h-4 bg-red-500 rounded-full inline-block"></span>
+                            <span class="w-4 h-4 bg-blue-500 rounded-full inline-block"></span>
+                            <span class="w-4 h-4 bg-yellow-500 rounded-full inline-block"></span>
+                            <span class="w-4 h-4 bg-green-500 rounded-full inline-block"></span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <h1 class="text-2xl font-bold text-pink-500">$500</h1>
+                            <button class="px-4 py-2 bg-blue-500 text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 ">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded shadow space-y-3">
+                        <img src="https://via.placeholder.com/190" alt="">
+                        <h1 class="text-xl font-bold">Product 1</h1>
+                        <div class="divide-x divide-gray-500 ">
+                            <span class="text-gray-500">Electronics </span>
+                            <span class="text-gray-500 pl-2">Smartphones</span>
+                        </div>
+                        <p class="text-gray-500">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
+                            (4.5)
+                        </p>
+                        <div class="color">
+                            <span class="w-4 h-4 bg-red-500 rounded-full inline-block"></span>
+                            <span class="w-4 h-4 bg-blue-500 rounded-full inline-block"></span>
+                            <span class="w-4 h-4 bg-yellow-500 rounded-full inline-block"></span>
+                            <span class="w-4 h-4 bg-green-500 rounded-full inline-block"></span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <h1 class="text-2xl font-bold text-pink-500">$500</h1>
+                            <button class="px-4 py-2 bg-blue-500 text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 ">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded shadow space-y-3">
+                        <img src="https://via.placeholder.com/190" alt="">
+                        <h1 class="text-xl font-bold">Product 1</h1>
+                        <div class="divide-x divide-gray-500 ">
+                            <span class="text-gray-500">Electronics </span>
+                            <span class="text-gray-500 pl-2">Smartphones</span>
+                        </div>
+                        <p class="text-gray-500">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
+                            (4.5)
+                        </p>
+                        <div class="color">
+                            <span class="w-4 h-4 bg-red-500 rounded-full inline-block"></span>
+                            <span class="w-4 h-4 bg-blue-500 rounded-full inline-block"></span>
+                            <span class="w-4 h-4 bg-yellow-500 rounded-full inline-block"></span>
+                            <span class="w-4 h-4 bg-green-500 rounded-full inline-block"></span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <h1 class="text-2xl font-bold text-pink-500">$500</h1>
+                            <button class="px-4 py-2 bg-blue-500 text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 ">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded shadow space-y-3">
+                        <img src="https://via.placeholder.com/190" alt="">
+                        <h1 class="text-xl font-bold">Product 1</h1>
+                        <div class="divide-x divide-gray-500 ">
+                            <span class="text-gray-500">Electronics </span>
+                            <span class="text-gray-500 pl-2">Smartphones</span>
+                        </div>
+                        <p class="text-gray-500">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
+                            (4.5)
+                        </p>
+                        <div class="color">
+                            <span class="w-4 h-4 bg-red-500 rounded-full inline-block"></span>
+                            <span class="w-4 h-4 bg-blue-500 rounded-full inline-block"></span>
+                            <span class="w-4 h-4 bg-yellow-500 rounded-full inline-block"></span>
+                            <span class="w-4 h-4 bg-green-500 rounded-full inline-block"></span>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <h1 class="text-2xl font-bold text-pink-500">$500</h1>
+                            <button class="px-4 py-2 bg-blue-500 text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 ">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-gray-800 text-white text-center py-4">
+        <p>&copy; 2021 All rights reserved</p>  
+    </footer>
+
+</body>
+</html>
