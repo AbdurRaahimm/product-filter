@@ -6,8 +6,8 @@ const productContainer = document.querySelector('.productContainer');
 const displayProducts = (product) => {
     productContainer.innerHTML += `
     <div class="bg-white p-4 rounded shadow space-y-3">
-        <img class="rounded" loading="lazy" src="${product.image}" alt="produc-img">
-        <h1 class="text-xl font-bold"> ${product.title} </h1>
+        <a href="singleProduct.html?id=${product.id}"><img class="rounded" loading="lazy" src="${product.image}" alt="produc-img"></a>
+        <a href="singleProduct.html?id=${product.id}"><h1 class="text-xl font-bold"> ${product.title} </h1></a>
         <div class="">
             ${product.category.map((cat) => `<span class="text-gray-500">${cat}</span>`).join(',')}
         </div>              
