@@ -9,6 +9,7 @@ const colorsList = document.querySelector('#colorsList ul');
 const starList = document.querySelector('#starList select');
 const priceFilter = document.querySelector('#priceFilter input');
 const highPrice = document.querySelector('#highPrice');
+
 // console.log(sortFilter);
 
 // grid view and list view

@@ -1,6 +1,7 @@
 import { formatPrice } from "./formatPrice.js";
 import { starRating } from "./starRating.js";
-
+const cardItems = document.querySelector('.card #cardItems');
+console.log(cardItems);
 const productContainer = document.querySelector('.productContainer');
 
 const displayProducts = (product) => {
@@ -22,9 +23,26 @@ const displayProducts = (product) => {
         </div>
         <div class="flex justify-between items-center mt-4">
             <h1 class="text-2xl font-bold text-pink-500">${formatPrice(product.price)}</h1>
-            <button class="px-4 py-2 bg-blue-500 text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 ">Add to Cart</button>
+            <button id="addTocard" class="px-4 py-2 bg-blue-500 text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 ">Add to Cart</button>
         </div>
     </div>`;
 };
 
 export default displayProducts;
+
+
+// click addToCard button and add to card items 
+productContainer.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (e.target.id === 'addTocard') {
+        // count cart items
+        let count = parseInt(cardItems.innerText.match(/\d+/g));
+        count++;
+        cardItems.innerText = `(${count})`;
+
+    }
+});
+
+
+
+

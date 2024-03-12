@@ -16,9 +16,13 @@
                     <input type="search"   class="px-4 py-2 rounded focus:outline-none " placeholder="Search Products...">
                     <button class="px-4 py-2 bg-blue-500 text-white bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 ">Search</button>
                 </div>
-                <div class="space-x-4">
+                <div class=" flex justify-center space-x-4">
                     <i class="bi bi-person text-3xl cursor-pointer ml-4 "></i>
-                    <i class="bi bi-cart3 text-3xl cursor-pointer mr-4"></i>
+                    <div class="card">
+                        <i class="bi bi-cart3 text-3xl cursor-pointer"></i>
+                       <span id="cardItems" class="text-bold text-2xl">(0)</span>
+                       <!-- <span id="cardPrice" class="text-bold text-2xl"> $100.99</span> -->
+                    </div>
                 </div>
             </div>
         </div>
