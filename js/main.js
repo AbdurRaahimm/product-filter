@@ -9,8 +9,9 @@ const colorsList = document.querySelector('#colorsList ul');
 const starList = document.querySelector('#starList select');
 const priceFilter = document.querySelector('#priceFilter input');
 const highPrice = document.querySelector('#highPrice');
-
-// console.log(sortFilter);
+const card = document.querySelector('.card');
+const aside = document.querySelector('aside');
+console.log(aside);
 
 // grid view and list view
 gridList.forEach((grid) => {
@@ -185,4 +186,17 @@ priceFilter.addEventListener('input', (e) => {
 // price show high 
 priceFilter.addEventListener('click', () => {
     highPrice.innerHTML = `$${priceFilter.value}`;
+});
+
+
+// block aside card 
+card.addEventListener('click', () => {
+    if (aside.classList.contains('hidden')) {
+        aside.classList.remove('hidden');
+        aside.classList.add('block');
+    }
+    else {
+        aside.classList.remove('block');
+        aside.classList.add('hidden');
+    }
 });
