@@ -27,7 +27,7 @@
     <main class="container mx-auto">
         <div class="flex gap-4">
             <div class="w-1/4">
-                <div id="category" class="bg-gray-100 p-4 rounded shadow">
+                <div id="categoryList" class="bg-gray-100 p-4 rounded shadow">
                     <h1 class="text-xl font-bold">Categories</h1>
                     <ul class="mt-2">
                         <!-- <li class="py-1"> <a href="#" class="hover:text-pink-500">Mobiles</a> </li>
@@ -37,35 +37,35 @@
                         <li class="py-1"> <a href="#" class="hover:text-pink-500">Watches</a> </li> -->
                     </ul>
                 </div>
-                <div class="bg-gray-100 p-4 rounded shadow mt-4">
+                <div id="colorsList" class="bg-gray-100 p-4 rounded shadow mt-4">
                     <h1 class="text-xl font-bold">Colors</h1>
                     <ul class="mt-2">
-                        <li class="py-1"> <a href="#" class="hover:text-pink-500">Red</a> </li>
+                        <!-- <li class="py-1"> <a href="#" class="hover:text-pink-500">Red</a> </li>
                         <li class="py-1"> <a href="#" class="hover:text-pink-500">Blue</a> </li>
                         <li class="py-1"> <a href="#" class="hover:text-pink-500">Yellow</a> </li>
                         <li class="py-1"> <a href="#" class="hover:text-pink-500">Green</a> </li>
-                        <li class="py-1"> <a href="#" class="hover:text-pink-500">Black</a> </li>
+                        <li class="py-1"> <a href="#" class="hover:text-pink-500">Black</a> </li> -->
                     </ul>
                 </div>
-                <div class="bg-gray-100 p-4 rounded shadow mt-4">
+                <div id="starList" class="bg-gray-100 p-4 rounded shadow mt-4">
                     <h1 class="text-xl font-bold">Rating</h1>    
                     <!-- select option rating --> 
-                    <select name="" id="" class="px-4 py-2 rounded focus:outline-none w-full mt-2">
-                        <option value="">Select Rating</option>
-                        <option value="">1</option>
+                    <select name=""  class="px-4 py-2 rounded focus:outline-none w-full mt-2">
+                        <option value="" selected>Select Rating</option>
+                        <!-- <option value="">1</option>
                         <option value="">2</option>
                         <option value="">3</option>
                         <option value="">4</option>
-                        <option value="">5</option>
+                        <option value="">5</option> -->
                     </select>
 
                 </div>
-                <div class="bg-gray-100 p-4 rounded shadow mt-4">
+                <div id="priceFilter" class="bg-gray-100 p-4 rounded shadow mt-4">
                     <h1 class="text-xl font-bold">Price</h1>
-                    <input type="range" class=" w-full bg-gray-300 h-1 rounded mt-2" min="0" max="1000" step="50" value="0" id="priceRange">
+                    <input type="range" class=" w-full bg-gray-300 h-1 rounded mt-2" min="0" max="10000" step="50" value="0" id="priceRange">
                     <div class="flex justify-between items-center mt-2">
-                        <span>$0</span>
-                        <span>$1000</span>
+                        <span id="lowPrice">$0</span>
+                        <span id="highPrice">$10000</span>
                     </div>
                     
                 </div>
@@ -101,7 +101,8 @@
         </div>
     </main>
     <footer class="bg-gray-800 text-white text-center py-4">
-        <p>&copy; 2021 All rights reserved</p>  
+        <p>&copy; 2024 All rights reserved by <a target="_blank" href="https://www.facebook.com/Rahim72446"> Abdur Rahim</a></p> 
+
     </footer>
 
     <script type="module" src="./js/main.js"></script>

@@ -4,7 +4,11 @@ const productContainer = document.querySelector('.productContainer');
 const inputFilter = document.querySelector('#inputFilter input');
 const sortFilter = document.querySelector('#sortFilter');
 const showPerItem = document.querySelector('#showPerItem');
-const category = document.querySelector('#category ul');
+const categoryList = document.querySelector('#categoryList ul');
+const colorsList = document.querySelector('#colorsList ul');
+const starList = document.querySelector('#starList select');
+const priceFilter = document.querySelector('#priceFilter input');
+const highPrice = document.querySelector('#highPrice');
 // console.log(sortFilter);
 
 // grid view and list view
@@ -33,8 +37,28 @@ const productFetch = async () => {
         li.innerText = cat + `(${products.filter(item => item.category.includes(cat)).length})`;
         li.addEventListener('click', () => filterItemsByCategory(cat));
         li.classList.add('py-1', 'hover:text-pink-500', 'cursor-pointer');
-        category.appendChild(li);
-        // category.innerHTML += `<li  class="py-1 hover:text-pink-500 cursor-pointer"> ${cat}</li>`;
+        categoryList.appendChild(li);
+        // categoryList.innerHTML += `<li  class="py-1 hover:text-pink-500 cursor-pointer"> ${cat}</li>`;
+    });
+
+    // color append in ul
+    let colors = [...new Set(products.map(item => item.colors).flat())];
+    colors.map(color => {
+        const li = document.createElement('li');
+        li.innerText = color + `(${products.filter(item => item.colors.includes(color)).length})`;
+        li.addEventListener('click', () => filterItemsByColor(color));
+        li.classList.add('py-1', 'hover:text-pink-500', 'cursor-pointer');
+        colorsList.appendChild(li);
+        // colorsList.innerHTML += `<li class="py-1 hover:text-pink-500 cursor-pointer"> ${color}</li>`;
+    });
+
+    // star append in select
+    let stars = [...new Set(products.map(item => item.rating))];
+    stars.map(star => {
+        const option = document.createElement('option');
+        option.value = star;
+        option.innerText = star + ` (${products.filter(item => item.rating === star).length} reviews) `;
+        starList.appendChild(option);
     });
 
     // Display all products initially
@@ -107,4 +131,57 @@ const filterItemsByCategory = (category) => {
     }
 };
 
+// filter product by color
+const filterItemsByColor = (color) => {
+    const filterProduct = items.filter((product) => {
+        return product.colors.includes(color);
+    });
+    productContainer.innerHTML = '';
+    if (filterProduct.length === 0) {
+        productContainer.innerHTML = `<h1 class="text-2xl text-center">Product not found</h1>`;
+    } else {
+        filterProduct.forEach((product) => {
+            displayProducts(product);
+        });
+    }
+};
 
+// filter product by star rating
+
+starList.addEventListener('change', (e) => {
+    const value = e.target.value;
+    console.log(value);
+    const filterProduct = items.filter((product) => {
+        return product.rating === parseFloat(value);
+    });
+    productContainer.innerHTML = '';
+
+    if (filterProduct.length === 0) {
+        productContainer.innerHTML = `<h1 class="text-2xl text-center">Product not found</h1>`;
+    } else {
+        filterProduct.forEach((product) => {
+            displayProducts(product);
+        });
+    }
+});
+
+// filter product by price range
+priceFilter.addEventListener('input', (e) => {
+    const value = e.target.value;
+    const filterProduct = items.filter((product) => {
+        return product.price <= value;
+    });
+    productContainer.innerHTML = '';
+    if (filterProduct.length === 0) {
+        productContainer.innerHTML = `<h1 class="text-2xl text-center">Product not found</h1>`;
+    } else {
+        filterProduct.forEach((product) => {
+            displayProducts(product);
+        });
+    }
+});
+
+// price show high 
+priceFilter.addEventListener('click', () => {
+    highPrice.innerHTML = `$${priceFilter.value}`;
+});
